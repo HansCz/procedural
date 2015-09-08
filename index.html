@@ -17,7 +17,6 @@
   </style>
 </head>
 <body>
-  <script></script>
   <div>
     <h1>Grid</h1>
     <canvas id="grid" width="512" height="512"></canvas>
@@ -34,7 +33,6 @@
       if (typeof(stroke_style) === "undefined") { this.stroke_style = "#EEE"; } else { this.stroke_style = stroke_style; }
       this.ctx.strokeStyle = this.stroke_style;
       this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-      // this.ctx.strokeRect(0,0,this.canvas.width,this.canvas.height);
       for (var row_x = this.gridsize_x - 1; row_x >= 0; row_x--) {
         for (var row_y = this.gridsize_y - 1; row_y >= 0; row_y--) {
           ctx.strokeRect(((this.canvas.width / this.gridsize_x) * row_x), ((this.canvas.height / this.gridsize_y) * row_y), (this.canvas.width / this.gridsize_x), (this.canvas.height / this.gridsize_y));
