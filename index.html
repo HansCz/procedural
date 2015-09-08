@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Pixel Grid</title>
+  <style type="text/css" media="screen">
+    html {
+      height: 100%;
+    }
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <script></script>
+  <div>
+    <h1>Grid</h1>
+    <canvas id="grid" width="512" height="512"></canvas>
+  </div>
+
+  <script type="text/javascript">
+    var Grid = function (gridsize_x, gridsize_y, canvas, context) {
+      this.gridsize_x = gridsize_x;
+      this.gridsize_y = gridsize_y;
+      this.canvas = canvas;
+      this.ctx = context;
+    }
+    Grid.prototype.draw = function (stroke_style) {
+      if (typeof(stroke_style) === "undefined") { this.stroke_style = "#EEE"; } else { this.stroke_style = stroke_style; }
+      this.ctx.strokeStyle = this.stroke_style;
+      this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+      // this.ctx.strokeRect(0,0,this.canvas.width,this.canvas.height);
+      for (var row_x = this.gridsize_x - 1; row_x >= 0; row_x--) {
+        for (var row_y = this.gridsize_y - 1; row_y >= 0; row_y--) {
+          ctx.strokeRect(((this.canvas.width / this.gridsize_x) * row_x), ((this.canvas.height / this.gridsize_y) * row_y), (this.canvas.width / this.gridsize_x), (this.canvas.height / this.gridsize_y));
+        }
+      }
+    }
+
+    var canvas = document.getElementById('grid');
+    var ctx = canvas.getContext('2d');
+    var grid = new Grid(8, 8, canvas, ctx);
+    grid.draw();
+  </script>
+</body>
+</html>
